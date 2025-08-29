@@ -36,5 +36,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-### 忽略ymcc-ui目录###
-.ymcc-ui/
