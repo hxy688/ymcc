@@ -1,6 +1,11 @@
 package cn.hxy.ymcc.result;
 
+import cn.hxy.ymcc.constants.ErrorCode;
 import lombok.Data;
+import org.springframework.validation.ObjectError;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 //返回JSON结果
 @Data
@@ -42,11 +47,25 @@ public class JSONResult {
         instance.setCode(code);
         return instance;
     }
+    public static JSONResult error(ErrorCode errorCode){
+        JSONResult instance = new JSONResult();
+        instance.setMessage(errorCode.getMessage());
+        instance.setSuccess(false);
+        instance.setCode(errorCode.getCode());
+        return instance;
+    }
 
     public static JSONResult error(){
         JSONResult jsonResult = new JSONResult();
         jsonResult.setSuccess(false);
         return jsonResult;
+    }
+    public static JSONResult error(List<ObjectError> errors){
+        JSONResult instance = new JSONResult();
+        instance.setMessage(errors.stream().map(error -> error.getDefaultMessage()).collect(Collectors.joining(",")));
+        instance.setSuccess(false);
+        instance.setCode("50000");
+        return instance;
     }
 
     /** 创建当前实例 **/

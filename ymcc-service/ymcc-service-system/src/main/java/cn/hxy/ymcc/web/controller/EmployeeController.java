@@ -1,5 +1,6 @@
 package cn.hxy.ymcc.web.controller;
 
+import cn.hxy.ymcc.exception.GlobleBusinessException;
 import cn.hxy.ymcc.service.IEmployeeService;
 import cn.hxy.ymcc.domain.Employee;
 import cn.hxy.ymcc.query.EmployeeQuery;
@@ -9,6 +10,8 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/employee")
@@ -21,7 +24,8 @@ public class EmployeeController {
     * 保存和修改公用的
     */
     @RequestMapping(value="/save",method= RequestMethod.POST)
-    public JSONResult saveOrUpdate(@RequestBody Employee employee){
+    public JSONResult saveOrUpdate(@RequestBody @Valid Employee employee){
+
         if(employee.getId()!=null){
             employeeService.updateById(employee);
         }else{
@@ -53,6 +57,10 @@ public class EmployeeController {
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public JSONResult list(){
+//        if (true) {
+//            throw new GlobleBusinessException("用户名输入错误");
+//        }
+        int a=1/0;
         return JSONResult.success(employeeService.selectList(null));
     }
 

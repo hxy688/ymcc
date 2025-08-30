@@ -15,6 +15,7 @@
         <module>ymcc-service-system</module>
         <module>ymcc-service-uaa</module>
         <module>ymcc-service-user</module>
+        <module>ymcc-common</module>
     </modules>
 
     <properties>

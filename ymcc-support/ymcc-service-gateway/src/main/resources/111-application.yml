@@ -19,6 +19,12 @@ spring:
             - Path=/ymcc/system/**	#服务访问路径
           filters:
             - StripPrefix=2
+        - id: application-user #指定服务名
+          uri: lb://service-user #去注册中心找这个服务名
+          predicates: #断言，匹配访问的路径
+            - Path=/ymcc/user/**    #服务访问路径
+          filters:
+            - StripPrefix=2
         - id: application-uaa #指定服务名
           uri: lb://service-uaa #去注册中心找这个服务名
           predicates:    #断言，匹配访问的路径
@@ -29,12 +35,6 @@ spring:
           uri: lb://service-course #去注册中心找这个服务名
           predicates:    #断言，匹配访问的路径
             - Path=/ymcc/course/**    #服务访问路径
-          filters:
-            - StripPrefix=2
-        - id: application-system #指定服务名
-          uri: lb://service-system #去注册中心找这个服务名
-          predicates:    #断言，匹配访问的路径
-            - Path=/ymcc/system/**    #服务访问路径
           filters:
             - StripPrefix=2
         - id: application-search #指定服务名

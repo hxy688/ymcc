@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.hxy.ymcc</groupId>
-        <artifactId>ymcc-basic</artifactId>
+        <artifactId>ymcc-service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ymcc-basic-dependency</artifactId>
+    <artifactId>ymcc-common</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,26 +18,14 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.alibaba.cloud </groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>cn.hxy.ymcc</groupId>
+            <artifactId>hxy-basic-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.9</version>
-        </dependency>
-
         <!--引入swagger支持-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -52,11 +40,15 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.hxy.ymcc</groupId>
-            <artifactId>hxy-basic-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.alibaba.cloud </groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
 
     </dependencies>
 </project>
